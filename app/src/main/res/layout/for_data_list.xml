@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/tv_judul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Judul Buku"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/tv_penulis"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Nama Penulis"
+        android:textSize="16sp"
+        android:textAlignment="textEnd"
+        android:textColor="#000"
+        android:textStyle="bold|italic" />
+    <TextView
+        android:id="@+id/tv_terbit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="2018"
+        android:textSize="16sp"
+        android:textAlignment="textEnd"
+        android:textColor="#000"
+        android:textStyle="italic" />
+</LinearLayout>
