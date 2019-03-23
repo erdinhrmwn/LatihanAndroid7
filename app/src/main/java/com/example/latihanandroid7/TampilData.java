@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -29,9 +30,10 @@ public class TampilData extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dataview);
+        setContentView(R.layout.tampil_data);
         datalist = new ArrayList<>();
         lv = findViewById(R.id.lv);
+        FloatingActionButton fab = findViewById(R.id.tambahdata);
         new GetDataFromServer().execute();
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -40,6 +42,12 @@ public class TampilData extends AppCompatActivity {
                 Bundle b = new Bundle();
                 b.putString("judul", datalist.get(i).get("judul"));
                 startActivityForResult(new Intent(TampilData.this, DetailData.class).putExtras(b), 10021);
+            }
+        });
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(TampilData.this, AddData.class));
             }
         });
     }

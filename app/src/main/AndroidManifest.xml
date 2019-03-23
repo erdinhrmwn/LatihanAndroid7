@@ -19,6 +19,7 @@
         <activity android:name=".Splash"/>
         <activity android:name=".TampilData"/>
         <activity android:name=".DetailData" />
+        <activity android:name=".AddData" />
     </application>
 
 </manifest>
