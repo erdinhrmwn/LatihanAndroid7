@@ -1,10 +1,13 @@
 package com.example.latihanandroid7;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -30,6 +33,15 @@ public class TampilData extends AppCompatActivity {
         datalist = new ArrayList<>();
         lv = findViewById(R.id.lv);
         new GetDataFromServer().execute();
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                Bundle b = new Bundle();
+                b.putString("judul", datalist.get(i).get("judul"));
+                startActivityForResult(new Intent(TampilData.this, DetailData.class).putExtras(b), 10021);
+            }
+        });
     }
 
     private class GetDataFromServer extends AsyncTask<Void, Void, Void> {
@@ -56,6 +68,7 @@ public class TampilData extends AppCompatActivity {
                         buku.put("judul", judul);
                         buku.put("penulis", penulis);
                         buku.put("tahun_terbit", tahun);
+
                         datalist.add(buku);
                     }
                 } catch (JSONException e) {
